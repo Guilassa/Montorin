@@ -30,16 +30,7 @@
              <div class="imgcontainer">
               <br>
               <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
+
                 <img src="../imagenes/logoEmpresa.png" alt="Avatar" class="avatar" width="300px" heigth="300px">
             </div>
 

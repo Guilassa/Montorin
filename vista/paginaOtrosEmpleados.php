@@ -1,35 +1,29 @@
 <html>
 <head>
-
- <meta charset="utf-8">
 <title></title>
+<link rel="stylesheet" type="text/css" href="../styles/index.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="../styles/paginaOtrosEmpleados.css" media="screen" />
 </head>
 <body>
-
-
-<a href="../styles/cierreDeSesion.php">Cierra Sesión</a>
-
-
 <?php
 
     session_start();//reanudamos sesion para recuperar lo que se almaceno durante sesion en la otra pagina
 
-    if (!isset($_SESSION["usuario"])) { //si nadie inicio sesion 
+    if (!isset($_SESSION["usuario"])) { //si nadi inicio sesion 
     	
     	header("location:../fullscreen-login/index.php");   //regresamos a pagina de login
 
     } 
 
     ?>
-<?php           // en otro caso osea si alguien ha inciado sesion
+<?php
 	
 	echo "<h2> Pagina otros empleados</h2>";
 
     echo "BienVenido: " .$_SESSION["usuario"]."<br><br>";
 
     ?>
-    
+<div class="parallax"></div>
 
 
  <div class="row">
@@ -47,8 +41,6 @@
   </div>
 </div>
 
-
-
-
+<div class="parallaxDown"></div>
 </body>
 </html>
