@@ -5,7 +5,7 @@
 
 	if(isset($order)){
 		
-		$conn = new mysqli("localhost", "root", "root", "ingenieriadesoftware");
+		$conn = new mysqli("localhost", "id1771132_root", "rooot", "id1771132_ingenieriadesoftware");
 		$result = $conn->query("SELECT id, Nombre, Apellido1, Apellido2, Categoria, email FROM hoja1 WHERE '$where' LIKE '$like' ORDER BY '$order'");
 
 		$outp = "";

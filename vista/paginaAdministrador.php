@@ -1,4 +1,3 @@
-
 <html><head>
 
   	<meta charset="utf-8">
@@ -6,6 +5,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place css in the directory -->
+    
     <!-- bootstrap:css -->
     <!--<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.0/css/bootstrap-combined.min.css" rel="stylesheet">-->
     <!-- endbootstrap -->
@@ -15,7 +15,6 @@
     <!-- index:css-->
     <link rel="stylesheet" href="css/index.css" />
     <!-- endindex -->
-
 </head>
 
 
@@ -30,15 +29,8 @@
     	header("location:../fullscreen-login/index.php");   //regresamos a pagina de login
 
     } 
+?>
 
-    ?>
-<?php
-	
-	echo "<h2> Pagina Administradores</h2>";
-
-    echo "Bienvenido: " .$_SESSION["usuario"]."<br><br>";
-
-    ?>
 
 <div  class="linea1">
 
@@ -54,12 +46,12 @@
       <!--MENUI DESPLEGABLE-->
 
       <ul   class="nav">
-        <li><a  ng-href="">Home
+        <li><a  ng-href="../index.html">Home
          	<i class="fa fa-home" style="margin-left: 10px" aria-hidden="true"></i></a>
           
         </li>
 
-        <li class="login"><a href="../fullscreen-login/index.php">Login
+        <li class="login"><a href="../fullscreen-login/index.php">Cerrar Sesion
         	<i class="fa fa-sign-in" style="margin-left: 10px" aria-hidden="true"></i></a>
         
         </li>
@@ -73,6 +65,12 @@
          	<i class="fa fa-address-card-o" style="margin-left: 10px" aria-hidden="true"></i></a>
           
         </li>  
+
+
+
+         <li><a  class="active" title="Mi Cuenta"><img class="avatarr" src="../imagenes/img_avatar2.png" alt="Avatar"><?php  echo " Bienvenido: ".$_SESSION["usuario"] ?></a>
+          
+        </li> 
 
       </ul>
 
@@ -90,9 +88,7 @@
     <div class="contain" style="border: hidden">
       
       <select id="bbdd" style="width: auto;">
-	  </select>
-		
-        
+      </select>
     </div>
 
     <div class="contain" style="background-color:#f1f1f1;padding: 10 0">
@@ -107,9 +103,8 @@
 <div class ="administrativos"></div>
 	
 <div class="tablero" ng-controller="cntrl" style="background-image: url(../imagenes/EmployeeBack1.jpeg)">
-	
+  
 	<h1 align="right" style="padding-right: 2%">Administrativos
-	 
 		<button class="button" ng-class="{'active': order=='Nombre'}" ng-click="setOrder('Nombre')" style="width: auto; margin-left: 28%;background-color: #3bd159;">
 			<a href="" style="text-decoration: none; color: white;">Nombre
 				<i class="fa fa-sort-alpha-asc" style="font-size: 22px" aria-hidden="true"></i>
@@ -121,7 +116,8 @@
 				<i class="fa fa-sort-alpha-asc" style="font-size: 22px" aria-hidden="true"></i>
 			</a></button>
 			
-	</h1> 
+	</h1>
+        <input class ="completar" type="text" name="search" placeholder="Search.." ng-model="buscar1"> 
 	<div class="row">
   	 <div class="column">
 		<div class="card" style="background-color:rgba(205,255,149,0.64);color:#4E4E4E;text-align: center">
@@ -145,7 +141,7 @@
 		  </div>
 		</div>
 	  </div>
-	  <div class="column" ng-repeat="usuario in names | orderBy : order | filter : 'Administrativo'">
+	 <div class="column" ng-repeat="usuario in names | orderBy : order | filter : {Categoria : 'Administrativo'} | filter : buscar1">
 		<div class="card" style="background-color:rgba(255,255,255,0.64);color:#4E4E4E;text-align: center">
 		  <img src="../imagenes/img_avatar2.png" alt="{{usuario.Nombre}}" style="width:100%">
 		  <div class="container">
@@ -154,7 +150,7 @@
 			<p class="title">{{usuario.Categoria}}</p>
 			<br>
 			<div style="margin: 15px 0;">
-				<a class="{{usuario.id}}" href="" onClick="email(this.className);SnackbarInfo();" style="text-decoration: none;font-size: 22px; color: black;">
+				<a class="{{usuario.id}}" href="" onClick="SnackbarInfo();email(this.className);" style="text-decoration: none;font-size: 22px; color: black;">
 					<i class="fa fa-envelope"></i>
 				</a>
 				<div id="snackbar"></div>
@@ -181,9 +177,9 @@
 <script src="js/angular.min.js"></script>
 
 <div class="tablero" ng-controller="cntrl" style="background-image: url(../imagenes/EmployeeBack2.jpg)">
-	<h1 align="right" style="padding-right: 2%">Empleados
-		
-		<button class="button" ng-class="{'active': orderE=='Nombre'}" ng-click="setOrderE('Nombre')" style="width: auto; margin-left: 31%;background-color: #3bd159;">
+     
+     <h1 align="right" style="padding-right: 2%">Empleados
+    		<button class="button" ng-class="{'active': orderE=='Nombre'}" ng-click="setOrderE('Nombre')" style="width: auto; margin-left: 31%;background-color: #3bd159;">
 			<a href="" style="text-decoration: none; color: white;">Nombre
 				<i class="fa fa-sort-alpha-asc" style="font-size: 22px" aria-hidden="true"></i>
 			</a>
@@ -194,8 +190,9 @@
 				<i class="fa fa-sort-alpha-asc" style="font-size: 22px" aria-hidden="true"></i>
 			</a></button>
 	</h1>
+        <input class ="completar" type="text" name="search1" placeholder="Search.." ng-model="buscar2">
 	<div class="row">
-	  <div class="column" ng-repeat="usuario in names | orderBy : orderE | filter : {Categoria:'!Administrativo'}">
+	  <div class="column" ng-repeat="usuario in names | orderBy : orderE | filter : {Categoria : '!Administrativo'} | filter : buscar2">
 		<div class="card" style="background-color:rgba(255,255,255,0.64);color:#4E4E4E ;text-align: center">
 		  <img src="../imagenes/img_avatar2.png" alt="{{usuario.Nombre}}" style="width:100%">
 		  <div class="container">
@@ -204,7 +201,7 @@
 			<p class="title">{{usuario.Categoria}}</p>
 			<br>
 			<div style="margin: 15px 0;">
-				<a class="{{usuario.id}}" href="" onClick="email(this.className);SnackbarInfo();" style="text-decoration: none;font-size: 22px; color: black;">
+				<a class="{{usuario.id}}" href="" onClick="SnackbarInfo();email(this.className);" style="text-decoration: none;font-size: 22px; color: black;">
 				<i class="fa fa-envelope"></i></a>
 				
 			</div>
@@ -330,28 +327,10 @@ function SnackbarInfo() {
 		var bases=document.getElementById("bbdd").value;
 		$.ajax({
 			// aqui va la ubicación de la página PHP
-		  url: '../php/search2.php',
-		  type: 'post',
-		  /*dataType: 'html',*/
-		  data: {'bases':bases},
+		  url: '../php/db_backup2.php',
 		  success:function(resultado){
-
-			var b = resultado;
-			var c = b.split(",");
-			var select = document.getElementById('bbdd');  
-			//alert(c[0]);
-			var opt = document.createElement('option');
-				opt.value = "-- Selecciona una BBDD --";
-				opt.disabled=true;
-				opt.innerHTML = "-- Selecciona una BBDD --";
-				select.appendChild(opt);
-
-			for (var i = 0; i<c.length; i++){
-				var opt = document.createElement('option');
-				opt.value = c[i];
-				opt.innerHTML = c[i];
-				select.appendChild(opt);
-			}
+                        var re = resultado;
+                        alert(re);
 		  }})
 			
 	}

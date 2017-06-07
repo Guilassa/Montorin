@@ -2,7 +2,7 @@
 	$a=$_POST['q'];
 	if(isset($a)){
 		
-		$conn = new mysqli("localhost", "root", "root", "ingenieriadesoftware");
+		$conn = new mysqli("localhost", "id1771132_root", "rooot", "id1771132_ingenieriadesoftware");
 		$result = $conn->query("SELECT email FROM hoja1 WHERE id LIKE '$a'");
 
 		$outp = "";

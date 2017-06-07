@@ -1,5 +1,6 @@
 <?php
-
+        $conn = new mysqli("localhost", "id1771132_root", "rooot", "id1771132_ingenieriadesoftware");
+        error_reporting(E_ALL ^ E_NOTICE);
 	$a=$_POST['q'];
 	$array=$_POST['array'];
 	$d=$_POST['d'];
@@ -7,8 +8,7 @@
 	$bases=$_POST['bases'];
 
 	if(isset($a)){
-		
-		$conn = new mysqli("localhost", "root", "root", "ingenieriadesoftware");
+	
 		$result = $conn->query("SELECT * FROM hoja1 WHERE id LIKE '$a'");
 
 		$outp = "";
@@ -38,7 +38,7 @@
 	}
 	elseif(isset($array))
 	{
-		$conn = new mysqli("localhost", "root", "root", "ingenieriadesoftware");
+		
 		$sql = "UPDATE hoja1 SET Nombre = '$array[0]',
 								Apellido1 = '$array[1]',
 								Apellido2 = '$array[2]',
@@ -62,10 +62,11 @@
 	}
 	elseif(isset($arrayAdd))
 	{
-		$conn = new mysqli("localhost", "root", "root", "ingenieriadesoftware");
+		
 		$sql = "INSERT INTO hoja1 (Nombre , Apellido1 , Apellido2 ,	Categoria , email , Fecha_alta , Nombre_empresa , 
 				Cif_empresa , Cod_cuenta , IBAN , Dni, Password ) 
-				VALUES ('$arrayAdd[0]','$arrayAdd[1]','$arrayAdd[2]','$arrayAdd[3]','$arrayAdd[4]','$arrayAdd[5]','$arrayAdd[6]' , '$arrayAdd[7]','$arrayAdd[8]','$arrayAdd[9]','$arrayAdd[10]','$arrayAdd[11]')";
+				VALUES ('$arrayAdd[0]','$arrayAdd[1]','$arrayAdd[2]','$arrayAdd[3]','$arrayAdd[4]','$arrayAdd[5]','$arrayAdd[6]' , 
+                                '$arrayAdd[7]','$arrayAdd[8]','$arrayAdd[9]','$arrayAdd[10]','$arrayAdd[11]')";
 
 		if ($conn->query($sql) === TRUE) {
 			echo "Se ha añadido correctamente";
@@ -76,19 +77,19 @@
 	}
 	elseif(isset($bases) && $bases==1)
 	{
-		$conn = new mysqli("localhost", "root", "root", "ingenieriadesoftware");
+		
 		$result = $conn->query("SHOW DATABASES");
 
 		$outp = "";
 		while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
 			if ($outp != "") {$outp .= ",";}
-			$outp .= $rs["Database"];
+			$outp .= $rs["Db"];
 		}
 		echo($outp);
 	}
 	else
 	{
-		$conn = new mysqli("localhost", "root", "root", "ingenieriadesoftware");
+		
 		$sql = "DELETE FROM hoja1 WHERE id LIKE '$d'";
 
 		if ($conn->query($sql) === TRUE) {
@@ -98,5 +99,4 @@
 		}
 		$conn->close();	
 	}
-
 ?>

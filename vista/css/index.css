@@ -1,4 +1,3 @@
-
 body, html {
     height: 100%;
 }
@@ -16,9 +15,6 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-
-
 
 .linea1{
 
@@ -38,6 +34,24 @@ body, html {
     margin:auto;
 }
 
+ .completar {
+       width: 130px;
+       box-sizing: border-box;
+       border: 2px solid #ccc;
+       border-radius: 4px;
+       font-size: 16px;
+       background-color: white;
+       background-image: url('../../imagenes/searchicon.png');
+       background-position: 10px 10px; 
+       background-repeat: no-repeat;
+       padding: 12px 20px 12px 40px;
+      -webkit-transition: width 0.4s ease-in-out;
+      transition: width 0.4s ease-in-out;
+}
+
+.completar:focus {
+    width: 100%;
+}
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////                                                                                                            ////
@@ -85,6 +99,7 @@ ul, ol {  /* para borrar puntos en lista*/
        padding:10px  12px;  /*tamaño 10alto 15 largo creo*/
        display:block;       /*crea bloque para tenerlo organizado sino estaria deforme*/
        
+       
 
 }
 
@@ -93,7 +108,7 @@ ul, ol {  /* para borrar puntos en lista*/
 .nav > li {  /*alinear de izquierda a derecha*/
            
        float:left;
-       width: 25%;    /*ancho de cada objeo*/
+       width: 20%;    /*ancho de cada objeto*/
        
 
 }
@@ -105,33 +120,33 @@ ul, ol {  /* para borrar puntos en lista*/
        background-color: #434343;
 
 }
-
-
-
-
+.nav li a.active { 
+       padding: 4px 12px;
+       background-color: #434343;
+       color: white;
+}
 
 .nav li ul {  
            
     display: none;
     position: absolute;
-	align-content: center;
+    align-content: center;
     min-width:100%;
     height: 100%;
-        
-       
 
 }
-
+.avatarr{
+     height:30px;
+     width:30px;
+     border-radius:50%;
+     margin-bottom: -4px;
+}
 
 .nav li:hover > ul{  
            
-      
-       
        display: block;
 
-
 }
-
 
 .nav li ul li {  
            
@@ -141,8 +156,6 @@ ul, ol {  /* para borrar puntos en lista*/
        
 
 }
-
-
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////                                                                                                            ////
@@ -244,7 +257,7 @@ span.psw {
 
 /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////                                                                                                            ////
-////                                           div1                                                             ////
+////                                           divs                                                             ////
 ////                                                                                                            ////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
@@ -271,7 +284,7 @@ span.psw {
 
 .administrativos{
 
-  height:70%;
+  height:60%;
   background-image: url("../../imagenes/Administrativo.jpg");
    background-repeat: no-repeat;
    background-size: cover;
@@ -281,7 +294,7 @@ span.psw {
 }
 .empleados{
 
-  height:70%;
+  height:60%;
   background-image: url("../../imagenes/img3.jpg");
    background-repeat: no-repeat;
    background-size: cover;
