@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<title>Documento sin título</title>
+</head>
+
+<body>
+
+
+<div ng-app="myApp" ng-controller="customersCtrl">
+
+
+
+<table>
+	
+   <thead>
+   	  <tr>
+		<th>Nombre</th>
+		<th>Apellido 1</th>
+		<th>Apellido 2</th>
+		<th>Dni</th>
+
+	</tr>
+   </thead>
+
+   <tr ng-repeat="usuario in names">
+   
+   	<td>{{usuario.Nombre}}</td>
+   	<td>{{usuario.Apellido1}}</td>
+   	<td>{{usuario.Apellido2}}</td>
+   	<td>{{usuario.Dni}}</td>
+   </tr>
+
+
+</table>
+
+
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("customers_mysql.php").then(function (response) 
+	{
+		$scope.names = response.data.records;
+	});
+});
+</script>
+
+
+
+</body>
+</html>
