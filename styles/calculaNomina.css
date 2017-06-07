@@ -1,0 +1,95 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body{
+	
+  /*padding-top: 120px;*/
+  padding-right: 20%;
+  padding-bottom: 10px;
+  padding-left: 20%;
+	
+	}
+table{
+	
+	width:100%;
+	border-collapse:collapse;
+border:1px solid silver;
+text-align:center;
+ /*height:1000px;*/
+
+
+	
+	}
+	
+/*table, td, th {
+	
+border:1px solid silver;
+border-collapse:collapse;  
+
+padding:10px; 
+text-align:center;
+}*/
+
+
+tr {
+	
+	width:100%;
+
+}
+
+td{
+
+border:1px solid silver;
+height:30px;
+
+
+}
+
+
+
+
+.filaEmpresa{
+	
+	width:100%;
+	
+	}
+
+p{
+	
+	
+	
+	font-size:10px;
+	height:1px;
+	
+	
+	}
+	
+	
+	.filasDatos{
+		
+		background-color:#E0D8D8;
+		
+		}
+		
+		
+      .filasprecios{
+		  
+		  height:500px;
+		  
+		  }
+		
+		
+		
+		.filasResultados{
+		
+		background-color:#E0D8D8;
+		
+		}
+		
+		
+		
+		
+		
+		
+		
