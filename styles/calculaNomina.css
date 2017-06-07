@@ -37,6 +37,9 @@ height:30px;
   height: 300px;
 }
 
+.oculto{
+visibility: hidden;
+}
 
 .filaEmpresa{
 
@@ -87,7 +90,8 @@ vertical-align: text-top;
 text-align: center;
 }
 		.filasResultados{
-
+text-align: center;
 		background-color:#E0D8D8;
+
 
 		}

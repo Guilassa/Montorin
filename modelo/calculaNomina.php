@@ -291,39 +291,39 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 <table >
 <tr >
-    <td class="filasDatos"><p>empresa</p><?php   echo $nombre_empresa  ?></td>
+    <td class="filasDatos"><p><b>Empresa</b></p><?php   echo $nombre_empresa  ?></td>
     <td class="filasDatos"></td>
 <td class="filasDatos"></td>
 <td class="filasDatos"></td>
-    <td class="filasDatos"><p>cif empresa</p><?php   echo $cif_empresa  ?></td>
+    <td class="filasDatos"><p><b>CIF empresa</b></p><?php   echo $cif_empresa  ?></td>
 	
 </tr>
 <tr>
-  <td class="filasDatos"><p>Nombre</p><?php  echo  $nombre.$apellido1.$apellido2 ?></td>
-  <td class="filasDatos"><p>DNI</p><?php  echo  $dni ?></td>
-  <td class="filasDatos"><p>Fecha alta</p><?php  echo  $fecha_alta ?></td>
-  <td class="filasDatos"><p>Datos bancarios</p><?php  echo  $iban ?></td>
-  <td class="filasDatos"><p>Centro de trabajo</p>León</td>
+  <td class="filasDatos"><p><b>Nombre</b></p><?php  echo  $nombre.$apellido1.$apellido2 ?></td>
+  <td class="filasDatos"><p><b>DNI</b></p><?php  echo  $dni ?></td>
+  <td class="filasDatos"><p><b>Fecha alta</b></p><?php  echo  $fecha_alta ?></td>
+  <td class="filasDatos"><p><b>Datos bancarios</b></p><?php  echo  $iban ?></td>
+  <td class="filasDatos"><p><b>Centro de trabajo</b></p>León</td>
 </tr>
 <tr>
-  <td  class="filasDatos" colspan="2"><p>Categoría</p><?php   echo $categoria  ?></td>
-  <td  class="filasDatos" colspan="3" ><p>e-mail</p><?php   echo $email  ?></td>
+  <td  class="filasDatos" colspan="2"><p><b>Categoría</b></p><?php   echo $categoria  ?></td>
+  <td  class="filasDatos" colspan="3" ><p><b>e-mail</b></p><?php   echo $email  ?></td>
 </tr>
 
 <tr>
 
-  <td   class="filasDatos" colspan="1"><p>Código de cotización</p><?php echo $codigo_cotizacion ?></td>
+  <td   class="filasDatos" colspan="1"><p><b>Código de cotización</b></p><?php echo $codigo_cotizacion ?></td>
   <td   class="filasDatos" colspan="3"></td>
-  <td   class="filasDatos" colspan="1"><p>Días</p><?php echo $dias_mes ?></td>
+  <td   class="filasDatos" colspan="1"><p><b>Días</b></p><?php echo $dias_mes ?></td>
 </tr>
 
 
 <tr>
-  <td class="vaaa"><p>unidades</p></td>
-  <td class="vaaa"><p>precio</p></td>
-  <td class="vaaa"><p>conceptos</p></td>
-  <td  class="vaaa"><p>devengos</p></td>
-  <td class="vaaa"><p>retención</p></td>
+  <td class="vaaa"><p><b>unidades</b></p></td>
+  <td class="vaaa"><p><b>precio</b></p></td>
+  <td class="vaaa"><p><b>conceptos</b></p></td>
+  <td  class="vaaa"><p><b>devengos</b></p></td>
+  <td class="vaaa"><p><b>retención</b></p></td>
 </tr>
 
 <tr class="ajustaraltura">
@@ -360,7 +360,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 														<p><?php echo round(($bruto_con_prorrateo),2) ?></p>
 
                              </td>
-  <td class="centrados"><p>SALARIO BASE</p><p>COMPLEMENTOS</p><p>ANTIGUEDAD</p><p>CONTINGENCIAS COMUNES</p><p>DESEMPLEO</p><p>CUOTA FORMACIÓN</p><p>IRPF</p><p>CONTINGENCIAS COMUNES EMPRESARIO</p><p>DESEMPLEO EMPRESARIO</p><p>FORMACIÓN EMPRESARIO</p><p>ACCIDENTES TRABAJO EMPRESARIO</p><p>FOGASA EMPRESARIO</p></td>
+  <td class="centrados"><p>Salario Base</p><p>Complementos</p><p>Antiguedad</p><p>Contingencias Comunes</p><p>Desempleo</p><p>Cuota Formación</p><p>IRPF</p><p>Contingencias Empresario</p><p>Desempleo Empresario</p><p>Formación Empresario</p><p>Accidentes Empresario</p><p>FOGASA Empresario</p></td>
   <td class="devengo" id="devengos">
 														 <p><?php echo  $salario_base_nomina ?></p>
 														 <p><?php echo $complemento_nomina ?></p>
@@ -381,6 +381,10 @@ error_reporting(E_ALL ^ E_NOTICE);
 														 <p><?php echo $cuota_formacion_empresario ?></p>
 														 <p><?php echo $cuota_accidentes_empresario ?></p>
 														 <p><?php echo $fogasa_empresario ?></p>
+
+<p class="oculto">eoeoe </p>
+<p class="oculto">eoeoe </p>
+
   </td>
 
 </tr>
@@ -390,10 +394,10 @@ error_reporting(E_ALL ^ E_NOTICE);
   <td   class="filasResultados"></td>
   <td   class="filasResultados"></td>
   <td   class="filasResultados"></td>
-  <td   class="filasResultados"><p>total devengado</p>
+  <td   class="filasResultados"><p><b>total devengado</b></p>
 																<p><?php echo $devengado ?></p>
 	</td>
-  <td   class="filasResultados"><p>total deducido</p>
+  <td   class="filasResultados"><p><b>total deducido</b></p>
 																<p><?php echo $deduccion_total ?></p>
 
 	</td>
@@ -401,7 +405,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 <tr>
   <td   class="filasResultados" colspan="4"></td>
-  <td   class="filasResultados"><p>total a percibir</p>
+  <td   class="filasResultados"><p><b>total a percibir</b></p>
 																<p><?php echo $liquido_a_percibir ?></p>
 
 	</td>
