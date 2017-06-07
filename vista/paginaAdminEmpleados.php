@@ -28,8 +28,10 @@ else{
 	<body>
     
 <div class="wrapper jsc-sidebar-content jsc-sidebar-pulled">
-	<nav>
-		<a href="#" class="icon-menu link-menu jsc-sidebar-trigger"></a>
+	<nav style="background-color:grey;">
+	     <a href="#" class="link-menu jsc-sidebar-trigger" 
+             style="text-decoration: none;font-size: 30px; color: white;padding:5px">
+                 <i class="fa fa-bars" aria-hidden="true"></i></a>
 	</nav>
 	<section class="main-content">
     
@@ -137,11 +139,8 @@ else{
 
 		<nav class="sidebar jsc-sidebar" id="jsi-nav" data-sidebar-options="">
 	<ul class="sidebar-list">
-		<li><a href="#" class="current">INFORMACI&Oacute;N PERSONAL</a></li>
-		<li><a href="../vista/herramientas.php">MIS HERRAMIENTAS</a></li>
-        <li><a href="../vista/datosEconomicos.php">DATOS ECONOMICOS</a></li>
-        <li><a href="../vista/puestoDeTrabajo.php">MI PUESTO DE TRABAJO</a></li>
-        <li><a href="../vista/informacion.php">INFORMACI&Oacute;N</a></li>
+		<li><a href="paginaOtrosEmpleados2admin.php" class="current">INFORMACI&Oacute;N PERSONAL</a></li>
+                <li><a href="../vista/datosEconomicosAdmin.php">DATOS ECONOMICOS</a></li>
 		<li><a href="../styles/cierreDeSesion.php">SALIR</a></li>
 	</ul>
 </nav>
