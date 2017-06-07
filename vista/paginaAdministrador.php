@@ -1,19 +1,20 @@
-<!DOCTYPE html>
+
 <html><head>
 
   	<meta charset="utf-8">
     <title>Pagina inicio</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
+    <!-- Place css in the directory -->
+    <!-- bootstrap:css -->
+    <!--<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.0/css/bootstrap-combined.min.css" rel="stylesheet">-->
+    <!-- endbootstrap -->
+    <!-- font-awesome:css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
+    <!-- endfont-awesome -->
+    <!-- index:css-->
     <link rel="stylesheet" href="css/index.css" />
-    <!-- endbuild -->
+    <!-- endindex -->
 
 </head>
 
@@ -26,7 +27,7 @@
 
     if (!isset($_SESSION["usuario"])) { //si nadi inicio sesion 
     	
-    	header("location:../fullscreen-login/i.php");   //regresamos a pagina de login
+    	header("location:../fullscreen-login/index.php");   //regresamos a pagina de login
 
     } 
 
@@ -48,47 +49,104 @@
 </div> 
 
 
-
-
 <div id="header" class="header">   <!--cabecera-->
       
-
-
       <!--MENUI DESPLEGABLE-->
 
-
-
       <ul   class="nav">
-        <li><a  ng-href="" >Home</a>
+        <li><a  ng-href="">Home
+         	<i class="fa fa-home" style="margin-left: 10px" aria-hidden="true"></i></a>
           
         </li>
 
-        <li class="login"><a  href="../fullscreen-login/index.php" >Login</a>
+        <li class="login"><a href="../fullscreen-login/index.php">Login
+        	<i class="fa fa-sign-in" style="margin-left: 10px" aria-hidden="true"></i></a>
         
         </li>
 
-        <li><a  ng-href="" >Acerca de</a>
+        <li><a  href="" onclick="document.getElementById('id01').style.display='block';bases();">Backup/Restore
+         	<i class="fa fa-database" style="margin-left: 10px"aria-hidden="true"></i></a>
           
         </li>
 
-        <li><a  ng-href="" >Contact</a>
+        <li><a  href="" >Contact
+         	<i class="fa fa-address-card-o" style="margin-left: 10px" aria-hidden="true"></i></a>
           
-        </li>
-
-        
+        </li>  
 
       </ul>
 
 </div>   <!--acaba cabecera-->
 
+<!--Ventana emergente de Backup-->
+	<div id="id01" class="modal" >
+  
+  <div class="modal-content animate" style="background-color: rgba(59,209,89,0.90);">
+    <div class="imgcontainer"style="background-color: rgba(0,0,0,0.0);">
+      <span onclick="document.getElementById('id01').style.display='none';borrar();" class="close" title="Close Modal">&times;</span>
+      <img src="../imagenes/timeMachine.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="contain" style="border: hidden">
+      
+      <select id="bbdd" style="width: auto;">
+	  </select>
+		
+        
+    </div>
+
+    <div class="contain" style="background-color:#f1f1f1;padding: 10 0">
+      	<input class="button" id="backup" value="Backup" onClick="backup();" style="width: auto"/>
+      	<input class="button" id="restore" value="Restaurar" onClick="resource();" style="width: auto"/>
+    </div>
+  </div>
+</div>
+
+
 <div class="parallax"></div>           <!-- donde haya esto se añade un paralax -->
 <div class ="administrativos"></div>
 	
 <div class="tablero" ng-controller="cntrl" style="background-image: url(../imagenes/EmployeeBack1.jpeg)">
-	<h1 align="center">Administrativos</h1>
+	
+	<h1 align="right" style="padding-right: 2%">Administrativos
+	 
+		<button class="button" ng-class="{'active': order=='Nombre'}" ng-click="setOrder('Nombre')" style="width: auto; margin-left: 28%;background-color: #3bd159;">
+			<a href="" style="text-decoration: none; color: white;">Nombre
+				<i class="fa fa-sort-alpha-asc" style="font-size: 22px" aria-hidden="true"></i>
+			</a>
+		</button>
+		
+		<button class="button" ng-class="{'active': order=='Apellido1'}" ng-click="setOrder('Apellido1')" style="width: auto; margin-left: 20px;background-color: #3bd159;">
+			<a href="" style="text-decoration: none; color: white;">Apellido
+				<i class="fa fa-sort-alpha-asc" style="font-size: 22px" aria-hidden="true"></i>
+			</a></button>
+			
+	</h1> 
 	<div class="row">
-	  <div class="column" ng-repeat="usuario in names | orderBy : 'Nombre' | filter : 'Administrativo'">
-		<div class="card" style="background-color:rgba(255,255,255,0.78);color:#4E4E4E;text-align: center">
+  	 <div class="column">
+		<div class="card" style="background-color:rgba(205,255,149,0.64);color:#4E4E4E;text-align: center">
+		  <img src="../imagenes/img_avatar2.png" alt="Add" style="width:100%">
+		  <div class="container">
+			<h3>Añadir nuevo trabajador</h3>
+			<br>
+			<p class="title"></p>
+			<br>
+			<br>
+			<div style="margin: 15px 0;">
+				<a  style="text-decoration: none;font-size: 22px; color: black;">
+					<i class="fa fa-user-plus" aria-hidden="true"></i>
+				</a>	
+			</div>
+			<br>
+			<form name="form0" id="form0" method="post" action="paginaAdminEmpleados.php">
+				<input type="hidden" name="var1" id="var1" value= -1 />
+				<button type ="submit" class="button" name ="add" value="add">Añadir</button>
+			</form>
+		  </div>
+		</div>
+	  </div>
+	  <div class="column" ng-repeat="usuario in names | orderBy : order | filter : 'Administrativo'">
+		<div class="card" style="background-color:rgba(255,255,255,0.64);color:#4E4E4E;text-align: center">
 		  <img src="../imagenes/img_avatar2.png" alt="{{usuario.Nombre}}" style="width:100%">
 		  <div class="container">
 			<h3>{{usuario.Nombre}} {{usuario.Apellido1}} {{usuario.Apellido2}}</h3>
@@ -96,15 +154,23 @@
 			<p class="title">{{usuario.Categoria}}</p>
 			<br>
 			<div style="margin: 15px 0;">
-				<a class="{{usuario.id}}" href="" onClick="SnackbarInfo();email(this.className);copiarAlPortapapeles('snackbar')" style="text-decoration: none;font-size: 22px; color: black;">
+				<a class="{{usuario.id}}" href="" onClick="email(this.className);SnackbarInfo();" style="text-decoration: none;font-size: 22px; color: black;">
 					<i class="fa fa-envelope"></i>
 				</a>
 				<div id="snackbar"></div>
 			</div>
 			<br>
-			<p><button class="button">Contact</button></p>
+			<form name="form1" id="form1" method="post" action="paginaAdminEmpleados.php">
+				
+				<input type="hidden" name="var1" id="var1" value= {{usuario.id}} />
+				<input type="hidden" name="va" id="va" value= "0" />
+				
+				<button type ="submit" class="button" name ="enviar" value="Enviar">Perfil</button>
+				
+			</form>
 		  </div>
 		</div>
+	  </div>
 	  </div>
 	</div> 
 </div>
@@ -113,11 +179,24 @@
 <div class="empleados"></div>
 
 <script src="js/angular.min.js"></script>
+
 <div class="tablero" ng-controller="cntrl" style="background-image: url(../imagenes/EmployeeBack2.jpg)">
-	<h1 align="center">Empleados</h1>
+	<h1 align="right" style="padding-right: 2%">Empleados
+		
+		<button class="button" ng-class="{'active': orderE=='Nombre'}" ng-click="setOrderE('Nombre')" style="width: auto; margin-left: 31%;background-color: #3bd159;">
+			<a href="" style="text-decoration: none; color: white;">Nombre
+				<i class="fa fa-sort-alpha-asc" style="font-size: 22px" aria-hidden="true"></i>
+			</a>
+		</button>
+		
+		<button class="button" ng-class="{'active': orderE=='Apellido1'}" ng-click="setOrderE('Apellido1')" style="width: auto; margin-left: 10px;background-color: #3bd159;">
+			<a href="" style="text-decoration: none; color: white;">Apellido
+				<i class="fa fa-sort-alpha-asc" style="font-size: 22px" aria-hidden="true"></i>
+			</a></button>
+	</h1>
 	<div class="row">
-	  <div class="column" ng-repeat="usuario in names | orderBy : 'Nombre' | filter : {Categoria:'!Administrativo'}">
-		<div class="card" style="background-color:rgba(255,255,255,0.78);color:#4E4E4E ;text-align: center">
+	  <div class="column" ng-repeat="usuario in names | orderBy : orderE | filter : {Categoria:'!Administrativo'}">
+		<div class="card" style="background-color:rgba(255,255,255,0.64);color:#4E4E4E ;text-align: center">
 		  <img src="../imagenes/img_avatar2.png" alt="{{usuario.Nombre}}" style="width:100%">
 		  <div class="container">
 			<h3>{{usuario.Nombre}} {{usuario.Apellido1}} {{usuario.Apellido2}}</h3>
@@ -125,17 +204,24 @@
 			<p class="title">{{usuario.Categoria}}</p>
 			<br>
 			<div style="margin: 15px 0;">
-				<a class="{{usuario.id}}" href="" onClick="SnackbarInfo();email(this.className);copiarAlPortapapeles('snackbar')" style="text-decoration: none;font-size: 22px; color: black;">
+				<a class="{{usuario.id}}" href="" onClick="email(this.className);SnackbarInfo();" style="text-decoration: none;font-size: 22px; color: black;">
 				<i class="fa fa-envelope"></i></a>
 				
 			</div>
 			<br>
-			<p><button class="button">Contact</button></p>
+			<form name="form2" id="form2" method="post" action="paginaAdminEmpleados.php">
+				
+				<input type="hidden" name="var1" value= {{usuario.id}} />
+				<input type="hidden" name="update" value= 0 />
+				<button type ="submit" class="button" name ="enviar" value="Enviar">Perfil</button>
+				
+			</form>
 		  </div>
 		</div>
 	  </div>
 	</div> 
 </div>
+
 <script>
 var app=angular.module('holaApp',[]);
 app.controller('cntrl', function($scope,$http){
@@ -144,7 +230,14 @@ app.controller('cntrl', function($scope,$http){
 	{
 		$scope.names = response.data.records;
 	})
-
+	
+	$scope.setOrder = function (order) {
+        $scope.order = order;
+    };
+	
+	$scope.setOrderE = function (orderE) {
+        $scope.orderE = orderE;
+    };
 });
 
 function SnackbarInfo() {
@@ -169,51 +262,104 @@ function SnackbarInfo() {
 		  /*dataType: 'html',*/
 		  data: {'q':q},
 		  success:function(resultado){
-		   // imprime "resultado Funcion"
-		   //alert(resultado);
+		   	// imprime "resultado Funcion"
+		   	//alert(resultado);
 			var b = resultado;
 			x = x+b;
     		document.getElementById("snackbar").innerHTML = x;
+			
+			window.prompt("Copia al portapapeles su E-mail: Ctrl+C, Enter", b);  
+			
 		  }})
 	}
-	</script>
-	<script>	
-	 //Inicio del boton de copia
-        var playButton = $('#snackbar');  // Se obtiene el id del boton clicable
-    playButton.click(function(){    // Aqui se pone a escucha el evento click para el boton antes definido
-            copyToClipboard();          // Esto llama a la funcion copyToClipboard() (Está mas abajo)
-    });
-        //fin del boton de copia
-        //Funcion copytoClipboard
-    function copyToClipboard() {
-        $("body").append("<input type='text' id='temp'>"); // Acá se crea un input dinamicamente con un id para luego asignarle un valor sombreado
-        $("#temp").val("EDITAESTO creado por GAMMAFP").select(); // Acá se obtiene el id del boton que hemos creado antes y se le agrega un valor y luego se le sombrea con select(). Para agregar lo que se quiere copiar editas val("EDITAESTOAQUÍ")
-        document.execCommand("copy"); // document.execCommand("copy") manda a copiar el texto seleccionado en el documento
-        $("#temp").remove();
-
-    }
-}
 	
-</script>
+	</script>
 
-<div class="parallax"></div>
-
-
-  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
-
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
+	<div class="parallax"></div>
+   
     <script src="js/jquery.js"></script>
     <script src="js/angular.js"></script>
+    <script src="js/angular.min.js"></script>
+    
+    <script>
+	// Get the modal
+	var modal = document.getElementById('id01');
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+
+	function bases(){
+
+		var bases = 1;
+		$.ajax({
+			// aqui va la ubicación de la página PHP
+		  url: '../php/search2.php',
+		  type: 'post',
+		  /*dataType: 'html',*/
+		  data: {'bases':bases},
+		  success:function(resultado){
+			// imprime "resultado Funcion"
+			//alert(resultado);
+			var b = resultado;
+			var c = b.split(",");
+			var select = document.getElementById('bbdd');  
+			//alert(c[0]);
+			var opt = document.createElement('option');
+				opt.value = "-- Selecciona una BBDD --";
+				opt.disabled=true;
+				opt.innerHTML = "-- Selecciona una BBDD --";
+				select.appendChild(opt);
+
+			for (var i = 0; i<c.length; i++){
+				var opt = document.createElement('option');
+				opt.value = c[i];
+				opt.innerHTML = c[i];
+				select.appendChild(opt);
+			}
+		  }})
+	}
+	function borrar(){
+		document.getElementById('bbdd').options.length = 0;
+	}
+		
+	function backup(){
+		var bases=document.getElementById("bbdd").value;
+		$.ajax({
+			// aqui va la ubicación de la página PHP
+		  url: '../php/search2.php',
+		  type: 'post',
+		  /*dataType: 'html',*/
+		  data: {'bases':bases},
+		  success:function(resultado){
+
+			var b = resultado;
+			var c = b.split(",");
+			var select = document.getElementById('bbdd');  
+			//alert(c[0]);
+			var opt = document.createElement('option');
+				opt.value = "-- Selecciona una BBDD --";
+				opt.disabled=true;
+				opt.innerHTML = "-- Selecciona una BBDD --";
+				select.appendChild(opt);
+
+			for (var i = 0; i<c.length; i++){
+				var opt = document.createElement('option');
+				opt.value = c[i];
+				opt.innerHTML = c[i];
+				select.appendChild(opt);
+			}
+		  }})
+			
+	}
+	
+	function restaurar(){
+		
+	}
+	</script>  
 
 
 </body>

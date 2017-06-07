@@ -1,9 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
-$order=$_POST['order'];
-$where=$_POST['where'];
-$like=$_POST['like'];
 
 $conn = new mysqli("localhost", "root", "root", "ingenieriadesoftware");
 

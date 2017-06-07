@@ -1,10 +1,9 @@
-
-<!DOCTYPE html>
-<html lang="en" class="no-js">
+<html class="no-js">
 
     <head>
 
         <meta charset="utf-8">
+        
         <title>Fullscreen Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
@@ -30,7 +29,12 @@
              <div class="imgcontainer">
               <br>
               <br>
-
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
                 <img src="../imagenes/logoEmpresa.png" alt="Avatar" class="avatar" width="300px" heigth="300px">
             </div>
 
